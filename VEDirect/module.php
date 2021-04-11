@@ -159,19 +159,6 @@ class VEDirect extends IPSModule
                     $position++;
                 }
             } else {
-                // ~Millivolt was introduced with IP-Symcon 5.6. Let's Polyfill for older versions
-                if ($profile == '~Millivolt') {
-                    if (!IPS_VariableProfileExists('~Millivolt')) {
-                        if (!IPS_VariableProfileExists('VEDirect.Millivolt')) {
-                            IPS_CreateVariableProfile('VEDirect.Millivolt', VARIABLETYPE_FLOAT);
-                            IPS_SetVariableProfileIcon('VEDirect.Millivolt', 'Electricity');
-                            IPS_SetVariableProfileText('VEDirect.Millivolt', '', ' mV');
-                            IPS_SetVariableProfileDigits('VEDirect.Millivolt', 1);
-                        }
-                        $profile = 'VEDirect.Millivolt';
-                    }
-                }
-
                 $this->MaintainVariable($label, $this->Translate($field['Name']), $field['Type'], $profile, $position, true);
                 $this->SetValue($label, $value);
             }
