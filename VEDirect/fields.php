@@ -134,7 +134,8 @@ trait VEDirectFields
             'Name'    => 'State-of-charge',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Intensity.100',
-            'Divider' => 100
+            'Divider' => 100,
+            'Drift'   => 1
         ],
         'TTG'      => [
             'Type'    => VARIABLETYPE_INTEGER,
@@ -284,7 +285,8 @@ trait VEDirectFields
         'H9'       => [
             'Type'    => VARIABLETYPE_INTEGER,
             'Name'    => 'Number of seconds since last full charge',
-            'Icon'    => 'EnergySolar'
+            'Icon'    => 'EnergySolar',
+            'Drift'   => 10
         ],
         'H10'      => [
             'Type'    => VARIABLETYPE_INTEGER,
