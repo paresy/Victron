@@ -83,8 +83,6 @@ class VEDirect extends IPSModule
 
                     // Trim will remove the first CRLF
                     $this->ParsePacket(trim(substr($data, 0, $posChecksum + strlen($searchHeader) + 1)));
-
-                    return;
                 } else {
                     $this->SendDebug('CHECKSUM', 'ERROR', 0);
                 }
@@ -147,6 +145,8 @@ class VEDirect extends IPSModule
         if (isset($this->fields[$label])) {
             $field = $this->fields[$label];
             $profile = isset($field['Profile']) ? $field['Profile'] : '';
+            $divider = isset($field['Divider']) ? $field['Divider'] : 1;
+            $drift = isset($field['Drift']) ? $field['Drift'] : 0;
             $position = array_search($label, array_keys($this->fields)) * 100;
 
             // Some fields need to be split into a bitmask and therefore multiple variables
@@ -154,13 +154,19 @@ class VEDirect extends IPSModule
                 foreach ($field['Bitmask'] as $key => $mask) {
                     if (in_array($this->ReadPropertyInteger('DeviceType'), $mask['Supported'])) {
                         $this->MaintainVariable($label . '_' . $key, $this->Translate($field['Name']) . ' (' . $this->Translate($mask['Name']) . ')', $field['Type'], $profile, $position, true);
-                        $this->SetValue($label . '_' . $key, ($value & $key) > 0);
+                        $this->SetValueEx($label . '_' . $key, ($value & $key) > 0, 0);
                     }
                     $position++;
                 }
             } else {
                 $this->MaintainVariable($label, $this->Translate($field['Name']), $field['Type'], $profile, $position, true);
-                $this->SetValue($label, $value);
+
+                // We need to apply the diver for numerical values
+                if (is_numeric($value)) {
+                    $value /= $divider;
+                }
+
+                $this->SetValueEx($label, $value, $drift);
             }
         }
         // Fallback to a more generic solution
@@ -170,7 +176,16 @@ class VEDirect extends IPSModule
             } else {
                 $this->RegisterVariableString($label, $label);
             }
-            $this->SetValue($label, $value);
+            $this->SetValueEx($label, $value, 0);
+        }
+    }
+
+    private function SetValueEx($ident, $value, $drift)
+    {
+        $diff = $this->GetValue($ident) != $value;
+        $id = $this->GetIDForIdent($ident);
+        if ($diff || (time() - IPS_GetVariable($id)['VariableUpdated'] > 60)) {
+            $this->SetValue($ident, $value);
         }
     }
 }

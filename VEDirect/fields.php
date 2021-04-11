@@ -15,35 +15,40 @@ trait VEDirectFields
             'Name'    => 'Main battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'V2'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Channel 2 battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'V3'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Channel 3 battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'VS'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Auxiliary starter voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'VM'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Mid-point voltage of the battery bank',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'DM'       => [
             'Type'    => VARIABLETYPE_INTEGER,
@@ -57,7 +62,8 @@ trait VEDirectFields
             'Name'    => 'Panel voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'PPV'      => [
             'Type'    => VARIABLETYPE_FLOAT,
@@ -70,21 +76,24 @@ trait VEDirectFields
             'Name'    => 'Main battery current',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'I2'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Channel 2 battery current',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'I3'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Channel 3 battery current',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'IL'       => [
             'Type'    => VARIABLETYPE_FLOAT,
@@ -92,6 +101,7 @@ trait VEDirectFields
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
             'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'LOAD'     => [
             'Type'    => VARIABLETYPE_BOOLEAN,
@@ -116,7 +126,8 @@ trait VEDirectFields
             'Name'    => 'Consumed Amp Hours',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'SOC'      => [
             'Type'    => VARIABLETYPE_INTEGER,
@@ -216,21 +227,24 @@ trait VEDirectFields
             'Name'    => 'Depth of the deepest discharge',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H2'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Depth of the last discharge',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H3'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Depth of the average discharge',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H4'       => [
             'Type'    => VARIABLETYPE_INTEGER,
@@ -247,21 +261,24 @@ trait VEDirectFields
             'Name'    => 'Cumulative Amp Hours drawn',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Ampere',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H7'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Minimum main battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H8'       => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Maximum main battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H9'       => [
             'Type'    => VARIABLETYPE_INTEGER,
@@ -298,14 +315,16 @@ trait VEDirectFields
             'Name'    => 'Minimum auxiliary battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H16'      => [
             'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Maximum auxiliary battery voltage',
             'Icon'    => 'EnergySolar',
             'Profile' => '~Volt',
-            'Divider' => 1000
+            'Divider' => 1000,
+            'Drift'   => 0.2
         ],
         'H17'      => [
             'Type'    => VARIABLETYPE_FLOAT,
