@@ -147,12 +147,14 @@ trait VEDirectFields
         'Alarm'    => [
             'Type'    => VARIABLETYPE_BOOLEAN,
             'Name'    => 'Alarm condition active',
-            'Icon'    => '~Alert'
+            'Icon'    => 'Alert',
+            'Profile' => '~Alert'
         ],
         'Relay'    => [
             'Type'    => VARIABLETYPE_BOOLEAN,
             'Name'    => 'Relay state',
-            'Icon'    => '~Switch'
+            'Icon'    => 'Power',
+            'Profile' => '~Switch'
         ],
         'AR'       => [
             'Type'    => VARIABLETYPE_BOOLEAN,
