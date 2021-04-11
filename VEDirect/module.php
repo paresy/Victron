@@ -135,9 +135,9 @@ class VEDirect extends IPSModule
             $this->MaintainVariable('PNAME', $this->Translate('Product Name'), VARIABLETYPE_STRING, '', -1, true);
             $id = substr($value, 2);
             if (isset($this->products[$id])) {
-                $this->SetValue('PNAME', $this->products[$id]);
+                $this->SetValueEx('PNAME', $this->products[$id], 0);
             } else {
-                $this->SetValue('PNAME', $this->Translate('Unknown'));
+                $this->SetValueEx('PNAME', $this->Translate('Unknown'), 0);
             }
         }
 
@@ -183,6 +183,14 @@ class VEDirect extends IPSModule
     private function SetValueEx($ident, $value, $drift)
     {
         $diff = $this->GetValue($ident) != $value;
+
+        // We want to invalidate diffs if the required drift is not reached
+        if ($drift) {
+            if (abs($this->GetValue($ident) - $value) < $drift) {
+                $diff = false;
+            }
+        }
+
         $id = $this->GetIDForIdent($ident);
         if ($diff || (time() - IPS_GetVariable($id)['VariableUpdated'] > 60)) {
             $this->SetValue($ident, $value);

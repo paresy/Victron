@@ -140,7 +140,8 @@ trait VEDirectFields
             'Type'    => VARIABLETYPE_INTEGER,
             'Name'    => 'Time-to-go',
             'Icon'    => 'EnergySolar',
-            'Profile' => 'VEDirect.TimeToGo'
+            'Profile' => 'VEDirect.TimeToGo',
+            'Drift'   => 5
         ],
         'Alarm'    => [
             'Type'    => VARIABLETYPE_BOOLEAN,
