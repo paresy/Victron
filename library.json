@@ -1,0 +1,12 @@
+{
+    "id": "{BDA40BBA-01B5-3339-9432-8F39EA5064A7}",
+    "name": "Victron",
+    "author": "Michael Maroszek",
+    "url": "https://github.com/paresy/Victron",
+    "compatibility": {
+        "version": "5.3"
+    },
+    "version": "1.0",
+    "build": 0,
+    "date": 0
+}

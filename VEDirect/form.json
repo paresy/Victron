@@ -1,0 +1,24 @@
+{
+    "elements": [
+        {
+            "type": "Select",
+            "name": "GatewayMode",
+            "caption": "Mode",
+            "options": [
+                { "caption": "Serial (UART)", "value": 0 },
+                { "caption": "Network (TCP/IP)", "value": 1 }
+            ]
+        },
+        {
+            "type": "Select",
+            "name": "DeviceType",
+            "caption": "Device",
+            "options": [
+                { "caption": "BMV", "value": 0 },
+                { "caption": "MPPT", "value": 1 },
+                { "caption": "Inverter", "value": 2 },
+                { "caption": "Charger", "value": 3 }
+            ]
+        }
+    ]
+}
