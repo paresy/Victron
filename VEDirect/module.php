@@ -70,7 +70,7 @@ class VEDirect extends IPSModule
         $posChecksum = strpos($data, $searchHeader);
         while ($posChecksum !== false) {
             // We need one more character (the checksum) after our packet complete trigger
-            if (strlen($data) > $posChecksum + strlen($searchHeader) + 1) {
+            if (strlen($data) >= $posChecksum + strlen($searchHeader) + 1) {
                 $crc = 0;
                 for ($i = 0; $i < $posChecksum + strlen($searchHeader) + 1; $i++) {
                     $crc += ord($data[$i]);
@@ -90,6 +90,11 @@ class VEDirect extends IPSModule
 
             // Cut data regardless if it was good or not
             $data = substr($data, $posChecksum + strlen($searchHeader) + 1);
+
+            // Quit if we have no data to check
+            if (!$data) {
+                break;
+            }
 
             // Maybe we received multiple packets at once. Check again
             $posChecksum = strpos($data, $searchHeader);
