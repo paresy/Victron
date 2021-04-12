@@ -120,6 +120,8 @@ class VEDirect extends IPSModule
             $value = $parts[1];
             if ($value == '---') {
                 $value = 0;
+            } elseif (substr($value, 0, 2) == '0x') {
+                $value = substr($value, 2);
             } elseif (strtolower($value) == 'on') {
                 $value = true;
             } elseif (strtolower($value) == 'off') {
@@ -142,9 +144,8 @@ class VEDirect extends IPSModule
         // Take care of special case. Add new variable to the product name
         if ($label == 'PID') {
             $this->MaintainVariable('PNAME', $this->Translate('Product Name'), VARIABLETYPE_STRING, '', -1, true);
-            $id = substr($value, 2);
-            if (isset($this->products[$id])) {
-                $this->SetValueEx('PNAME', $this->products[$id], 0);
+            if (isset($this->products[$value])) {
+                $this->SetValueEx('PNAME', $this->products[$value], 0);
             } else {
                 $this->SetValueEx('PNAME', $this->Translate('Unknown'), 0);
             }
