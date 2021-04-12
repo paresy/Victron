@@ -81,8 +81,9 @@ class VEDirect extends IPSModule
                 if ($crc == 0) {
                     $this->SendDebug('CHECKSUM', 'OK', 0);
 
-                    // Trim will remove the first CRLF
-                    $this->ParsePacket(trim(substr($data, 0, $posChecksum + strlen($searchHeader) + 1)));
+                    // Trim will remove the first CRLF on the left if available
+                    // Do not trim right. We want the checksum character to be in place - and it might be a trim character
+                    $this->ParsePacket(ltrim(substr($data, 0, $posChecksum + strlen($searchHeader) + 1)));
                 } else {
                     $this->SendDebug('CHECKSUM', 'ERROR', 0);
                 }
@@ -108,7 +109,9 @@ class VEDirect extends IPSModule
     {
         $lines = explode("\r\n", $packet);
         foreach ($lines as $line) {
-            $parts = explode("\t", $line);
+            // We need to limit the explode - The Checksum value might be a TAB character
+            // which we do not want to be recognized as a split character
+            $parts = explode("\t", $line, 2);
 
             // Sanitize label
             $label = preg_replace('/[^a-zA-Z0-9_]/', '', $parts[0]);
