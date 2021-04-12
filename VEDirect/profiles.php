@@ -6,6 +6,13 @@ trait VEDirectProfiles
 {
     private function RegisterProfiles()
     {
+        if (!IPS_VariableProfileExists('VEDirect.Intensity.100')) {
+            IPS_CreateVariableProfile('VEDirect.Intensity.100', VARIABLETYPE_FLOAT);
+            IPS_SetVariableProfileValues('VEDirect.Intensity.100', 0, 100, 1);
+            IPS_SetVariableProfileDigits('VEDirect.Intensity.100', 1);
+            IPS_SetVariableProfileText('VEDirect.Intensity.100', '', ' %');
+        }
+
         if (!IPS_VariableProfileExists('VEDirect.TimeToGo')) {
             IPS_CreateVariableProfile('VEDirect.TimeToGo', VARIABLETYPE_INTEGER);
             IPS_SetVariableProfileText('VEDirect.TimeToGo', '', ' ' . $this->Translate('Minutes'));

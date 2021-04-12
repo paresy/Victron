@@ -51,11 +51,11 @@ trait VEDirectFields
             'Drift'   => 0.2
         ],
         'DM'       => [
-            'Type'    => VARIABLETYPE_INTEGER,
+            'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'Mid-point deviation of the battery bank',
             'Icon'    => 'EnergySolar',
-            'Profile' => '~Intensity.100',
-            'Divider' => 100
+            'Profile' => 'VEDirect.Intensity.100',
+            'Divider' => 10
         ],
         'VPV'      => [
             'Type'    => VARIABLETYPE_FLOAT,
@@ -130,11 +130,11 @@ trait VEDirectFields
             'Drift'   => 0.2
         ],
         'SOC'      => [
-            'Type'    => VARIABLETYPE_INTEGER,
+            'Type'    => VARIABLETYPE_FLOAT,
             'Name'    => 'State-of-charge',
             'Icon'    => 'EnergySolar',
-            'Profile' => '~Intensity.100',
-            'Divider' => 100,
+            'Profile' => 'VEDirect.Intensity.100',
+            'Divider' => 10,
             'Drift'   => 1
         ],
         'TTG'      => [
