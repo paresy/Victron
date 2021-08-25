@@ -15,7 +15,9 @@ Beschreibung des Moduls.
 
 Dazu ist eine VE-Direct Kabelverbindung zu IP-Symcon nötig. Die Verbindung kann über einen Client Socket oder einem seriellen Port erfolgen. (https://www.victronenergy.de/solar-charge-controllers) 
 
-Variablen werden nach erfolgreicher Verbindung automatisch angelegt für folgende Laderegler:
+Variablen werden nach erfolgreicher Verbindung automatisch angelegt. Für einige Variablen, die Victron nicht dokumentiert hat, sind ggf. keine sprechenden Namen oder Profile vorhanden. Die Werte werden trotzdem angezeigt.
+
+Folgende Laderegler werden auch in der Gerätebezeichnung erkannt:
 
     BMV 700
     BMV 702
@@ -107,37 +109,19 @@ Variablen werden nach erfolgreicher Verbindung automatisch angelegt für folgend
 
 __Konfigurationsseite__:
 
-Name     | Beschreibung
--------- | ------------------
-Open     |
-         |
+Name              | Beschreibung
+----------------- | ------------------
+Gateway Modus     | Gibt an, ob eine serielle- oder eine Netzwerkverbindung genutzt werden soll
+Gerätetyp         | Gibt an, ob das Gerät ein BMV, MPPT, Inverter oder Charger ist
 
 ### 5. Statusvariablen und Profile
 
 Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
 
-#### Statusvariablen
-
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
 ### 6. WebFront
 
-Die Funktionalität, die das Modul im WebFront bietet.
+Alle Werte werden entsprechend im WebFront dargestellt
 
 ### 7. PHP-Befehlsreferenz
 
-`boolean VICTRON_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
-
-Beispiel:
-`VICTRON_BeispielFunktion(12345);`
+Es sind keine Befehle zum Schalten verfügbar.
