@@ -116,6 +116,11 @@ class VEDirect extends IPSModule
             // Sanitize label
             $label = preg_replace('/[^a-zA-Z0-9_]/', '', $parts[0]);
 
+            // Skip empty value
+            if(!array_key_exists(1, $parts)){
+                continue;      
+            }
+
             // Sanitize value
             $value = $parts[1];
             if ($value == '---') {
