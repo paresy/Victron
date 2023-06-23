@@ -113,13 +113,13 @@ class VEDirect extends IPSModule
             // which we do not want to be recognized as a split character
             $parts = explode("\t", $line, 2);
 
+            // Skip incomplete lines
+            if (count($parts) != 2) {
+                continue;
+            }
+
             // Sanitize label
             $label = preg_replace('/[^a-zA-Z0-9_]/', '', $parts[0]);
-
-            // Skip empty value
-            if(!array_key_exists(1, $parts)){
-                continue;      
-            }
 
             // Sanitize value
             $value = $parts[1];
